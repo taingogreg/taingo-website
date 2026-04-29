@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Taingo · Brand Handoff for Cursor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,800;1,9..144,400&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* ─── Brand Tokens ─────────────────────────────────────── */
+    --tg-midnight:    #0a1628;
+    --tg-steel:       #2a3442;
+    --tg-paper:       #f2ede2;
+    --tg-bone:        #e6dfcf;
+    --tg-copper:      #c7542b;
+    --tg-copper-light:#e07142;
+    --tg-sun:         #ffb84a;
+    --tg-cream:       #faf6ec;
+
+    --tg-font-display: 'Fraunces', Georgia, serif;
+    --tg-font-body:    'Manrope', system-ui, sans-serif;
+    --tg-font-mono:    'JetBrains Mono', ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    background: var(--tg-paper);
+    color: var(--tg-midnight);
+    font-family: var(--tg-font-body);
+    line-height: 1.55;
+  }
+  .doc { max-width: 1180px; margin: 0 auto; padding: 60px 48px 120px; }
+
+  h1 {
+    font-family: var(--tg-font-display);
+    font-weight: 600;
+    font-size: 56px;
+    letter-spacing: -0.025em;
+    line-height: 1;
+    margin: 0 0 8px;
+  }
+  h2 {
+    font-family: var(--tg-font-body);
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--tg-copper);
+    margin: 56px 0 18px;
+  }
+  h3 {
+    font-family: var(--tg-font-body);
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+    margin: 24px 0 12px;
+  }
+  p { margin: 0 0 14px; max-width: 760px; color: rgba(10,22,40,0.82); }
+  .lead { font-size: 18px; max-width: 720px; }
+
+  code, pre {
+    font-family: var(--tg-font-mono);
+    font-size: 13px;
+    background: var(--tg-midnight);
+    color: var(--tg-paper);
+    border-radius: 10px;
+  }
+  code { padding: 2px 6px; font-size: 12.5px; }
+  pre {
+    padding: 20px 22px;
+    overflow-x: auto;
+    line-height: 1.6;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 12px 28px rgba(10,22,40,0.08);
+  }
+  pre .com { color: #88a0c5; }
+  pre .key { color: var(--tg-sun); }
+  pre .str { color: var(--tg-copper-light); }
+
+  .swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .swatch {
+    border-radius: 14px; padding: 18px; min-height: 140px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  .swatch .name { font-weight: 700; font-size: 15px; }
+  .swatch .role { font-size: 11.5px; opacity: 0.85; margin-top: 2px; }
+  .swatch .hex { font-family: var(--tg-font-mono); font-size: 12px; opacity: 0.9; }
+
+  .logo-card {
+    background: #fff; border-radius: 16px; padding: 36px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 18px 38px rgba(10,22,40,0.08);
+    display: flex; align-items: center; justify-content: center;
+    min-height: 200px;
+  }
+  .logo-card.dark { background: var(--tg-midnight); }
+
+  .download-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 14px; }
+  .dl {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 18px;
+    background: #fff; border: 1px solid rgba(10,22,40,0.08);
+    border-radius: 12px;
+    text-decoration: none; color: var(--tg-midnight);
+    font-weight: 600; font-size: 14px;
+    transition: all 0.15s ease;
+  }
+  .dl:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(10,22,40,0.08); border-color: var(--tg-copper); }
+  .dl .meta { font-family: var(--tg-font-mono); font-size: 11px; color: rgba(10,22,40,0.55); font-weight: 500; }
+  .dl .arrow { color: var(--tg-copper); font-size: 18px; }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+  /* ─── Hero spec preview (matches the design canvas) ─── */
+  .hero-preview {
+    background: var(--tg-paper); color: var(--tg-midnight);
+    border-radius: 18px; overflow: hidden;
+    border: 1px solid rgba(10,22,40,0.08);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 22px 48px rgba(10,22,40,0.10);
+  }
+  .hero-preview .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 22px 36px;
+    border-bottom: 1px solid rgba(10,22,40,0.10);
+  }
+  .hero-preview .nav-logo {
+    font-family: var(--tg-font-display);
+    font-weight: 600;
+    font-size: 28px;
+    letter-spacing: -0.005em;
+    line-height: 1;
+  }
+  .hero-preview .nav-logo .ai {
+    font-style: italic; font-weight: 400; color: var(--tg-copper);
+    margin-left: -0.12em;
+  }
+  .hero-preview .nav-links {
+    display: flex; align-items: center; gap: 24px;
+    font-size: 13px; font-weight: 500; color: rgba(10,22,40,0.85);
+  }
+  .hero-preview .nav-cta {
+    background: var(--tg-copper); color: var(--tg-paper);
+    padding: 9px 16px; border-radius: 9px; font-weight: 600;
+  }
+  .hero-preview .body { padding: 56px 36px 40px; }
+  .hero-preview .eyebrow {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 700; color: var(--tg-copper); margin-bottom: 16px;
+  }
+  .hero-preview .head {
+    font-family: var(--tg-font-body); font-weight: 900;
+    font-size: 88px; line-height: 0.92;
+    letter-spacing: -0.04em; margin: 0 0 18px;
+  }
+  .hero-preview .head .grow { color: var(--tg-copper); }
+  .hero-preview .sub {
+    font-size: 16px; line-height: 1.55; color: rgba(10,22,40,0.78);
+    max-width: 540px; margin: 0 0 22px;
+  }
+  .hero-preview .ctas { display: flex; gap: 10px; }
+  .hero-preview .btn-prim {
+    background: var(--tg-copper); color: var(--tg-paper);
+    padding: 12px 22px; border-radius: 10px; font-weight: 600; font-size: 14px;
+  }
+  .hero-preview .btn-sec {
+    border: 1.5px solid rgba(10,22,40,0.20);
+    padding: 12px 22px; border-radius: 10px; font-weight: 600; font-size: 14px;
+  }
+
+  .toc {
+    background: #fff;
+    border: 1px solid rgba(10,22,40,0.08);
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin: 24px 0 36px;
+    display: flex; gap: 18px 28px; flex-wrap: wrap;
+    font-family: var(--tg-font-mono); font-size: 12px;
+  }
+  .toc a { color: var(--tg-midnight); text-decoration: none; }
+  .toc a:hover { color: var(--tg-copper); }
+  .toc .num { color: var(--tg-copper); font-weight: 700; margin-right: 6px; }
+
+  .pill { display: inline-block; background: var(--tg-midnight); color: var(--tg-paper); padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; margin-left: 8px; vertical-align: middle; font-family: var(--tg-font-body); }
+
+  .principle {
+    padding: 18px 0; border-top: 1px solid rgba(10,22,40,0.08);
+  }
+  .principle:first-child { border-top: none; padding-top: 0; }
+  .principle .title { font-weight: 700; margin-bottom: 4px; }
+  .principle .body { color: rgba(10,22,40,0.72); font-size: 15px; }
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <div style="font-family: var(--tg-font-mono); font-size: 12px; color: rgba(10,22,40,0.55); margin-bottom: 14px;">
+    Brand handoff · v1 · For Cursor
+  </div>
+  <h1>Taingo<span style="font-style: italic; font-weight: 400; color: var(--tg-copper); margin-left: -0.12em;">ai</span><span style="margin-left: -0.005em;">ngo</span> brand kit</h1>
+  <p class="lead">Everything Cursor needs to build the website to spec — logo files, color tokens, typography, and the hero section as production-ready code.</p>
+
+  <div class="toc">
+    <a href="#logos"><span class="num">01</span>Logo files</a>
+    <a href="#palette"><span class="num">02</span>Color palette</a>
+    <a href="#typography"><span class="num">03</span>Typography</a>
+    <a href="#tokens"><span class="num">04</span>Design tokens</a>
+    <a href="#hero"><span class="num">05</span>Hero section</a>
+    <a href="#components"><span class="num">06</span>Components</a>
+    <a href="#voice"><span class="num">07</span>Voice &amp; usage</a>
+  </div>
+
+  <!-- ─── 01 LOGO FILES ─── -->
+  <h2 id="logos">01 · Logo files</h2>
+  <p>The Taingo logo is set in <b>Fraunces</b>, with the "ai" in italic copper. The italic "ai" pulls toward the "T" with a custom kerning of <code>margin-left: -0.12em</code>. Use the SVG everywhere you can — it's the smallest, sharpest file. PNGs are provided for places that don't accept SVG (some social platforms, email signatures).</p>
+
+  <div class="grid2" style="margin-top: 18px;">
+    <div>
+      <div class="logo-card">
+        <img src="taingo-logo.svg" alt="Taingo logo (light)" style="width: 80%; height: auto;" />
+      </div>
+      <h3>Light variant</h3>
+      <div class="download-grid">
+        <a class="dl" href="taingo-logo.svg" download>
+          <span>taingo-logo.svg</span>
+          <span class="meta">SVG · scalable <span class="arrow">↓</span></span>
+        </a>
+        <a class="dl" href="taingo-logo.png" download>
+          <span>taingo-logo.png</span>
+          <span class="meta">600×180 <span class="arrow">↓</span></span>
+        </a>
+        <a class="dl" href="taingo-logo-2x.png" download>
+          <span>taingo-logo-2x.png</span>
+          <span class="meta">1200×360 <span class="arrow">↓</span></span>
+        </a>
+        <a class="dl" href="taingo-logo-4x.png" download>
+          <span>taingo-logo-4x.png</span>
+          <span class="meta">2400×720 <span class="arrow">↓</span></span>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="logo-card dark">
+        <img src="taingo-logo-dark.svg" alt="Taingo logo (dark)" style="width: 80%; height: auto;" />
+      </div>
+      <h3>Dark variant <span class="pill">on midnight</span></h3>
+      <div class="download-grid">
+        <a class="dl" href="taingo-logo-dark.svg" download>
+          <span>taingo-logo-dark.svg</span>
+          <span class="meta">SVG · scalable <span class="arrow">↓</span></span>
+        </a>
+        <a class="dl" href="taingo-logo-dark.png" download>
+          <span>taingo-logo-dark.png</span>
+          <span class="meta">600×180 <span class="arrow">↓</span></span>
+        </a>
+        <a class="dl" href="taingo-logo-2x-dark.png" download>
+          <span>taingo-logo-2x-dark.png</span>
+          <span class="meta">1200×360 <span class="arrow">↓</span></span>
+        </a>
+        <a class="dl" href="taingo-logo-4x-dark.png" download>
+          <span>taingo-logo-4x-dark.png</span>
+          <span class="meta">2400×720 <span class="arrow">↓</span></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top: 32px;">Inline HTML version (no image needed)</h3>
+  <p>For the website nav, this renders the logo as live text — sharper at any zoom and easy to recolor. Use this in your header component.</p>
+  <pre><span class="com">// React / JSX — Taingo wordmark</span>
+&lt;span className="taingo-logo"&gt;
+  T<span class="str">&lt;span className="ai"&gt;</span>ai<span class="str">&lt;/span&gt;</span>ngo
+&lt;/span&gt;
+
+<span class="com">/* CSS */</span>
+.taingo-logo {
+  font-family: <span class="str">'Fraunces'</span>, serif;
+  font-weight: <span class="key">600</span>;
+  font-size: <span class="key">28px</span>;          <span class="com">/* scale to context */</span>
+  letter-spacing: <span class="key">-0.005em</span>;
+  color: var(--tg-midnight);
+}
+.taingo-logo .ai {
+  font-style: italic;
+  font-weight: <span class="key">400</span>;
+  color: var(--tg-copper);
+  margin-left: <span class="key">-0.12em</span>;    <span class="com">/* the magic kerning */</span>
+}</pre>
+
+  <!-- ─── 02 PALETTE ─── -->
+  <h2 id="palette">02 · Color palette · Copper &amp; Midnight</h2>
+  <p>Three roles: <b>Midnight</b> for surfaces and primary type, <b>Copper</b> for the accent and CTAs, <b>Sun</b> for highlights and warmth. Paper and Bone are the light surfaces.</p>
+
+  <div class="swatches" style="margin-top: 20px;">
+    <div class="swatch" style="background: #0a1628; color: #f2ede2;">
+      <div><div class="name">Midnight</div><div class="role">Primary surface · type</div></div>
+      <div class="hex">#0A1628</div>
+    </div>
+    <div class="swatch" style="background: #c7542b; color: #fff;">
+      <div><div class="name">Copper</div><div class="role">Primary accent · CTAs</div></div>
+      <div class="hex">#C7542B</div>
+    </div>
+    <div class="swatch" style="background: #e07142; color: #fff;">
+      <div><div class="name">Copper Light</div><div class="role">Accent on dark backgrounds</div></div>
+      <div class="hex">#E07142</div>
+    </div>
+    <div class="swatch" style="background: #ffb84a; color: #5a3a08;">
+      <div><div class="name">Sun</div><div class="role">Highlights · status · ratings</div></div>
+      <div class="hex">#FFB84A</div>
+    </div>
+    <div class="swatch" style="background: #f2ede2; color: #0a1628;">
+      <div><div class="name">Paper</div><div class="role">Light surface · default bg</div></div>
+      <div class="hex">#F2EDE2</div>
+    </div>
+    <div class="swatch" style="background: #e6dfcf; color: #0a1628;">
+      <div><div class="name">Bone</div><div class="role">Secondary light · cards</div></div>
+      <div class="hex">#E6DFCF</div>
+    </div>
+    <div class="swatch" style="background: #2a3442; color: #f2ede2;">
+      <div><div class="name">Steel</div><div class="role">Neutral dark · borders</div></div>
+      <div class="hex">#2A3442</div>
+    </div>
+    <div class="swatch" style="background: #faf6ec; color: #0a1628; border: 1px solid rgba(10,22,40,0.08);">
+      <div><div class="name">Cream</div><div class="role">Subtle elevation on Paper</div></div>
+      <div class="hex">#FAF6EC</div>
+    </div>
+  </div>
+
+  <h3 style="margin-top: 32px;">When to use which</h3>
+  <div class="principle"><div class="title">Copper drives action.</div><div class="body">Buttons, links, the things people tap. If it's not interactive, it shouldn't be copper.</div></div>
+  <div class="principle"><div class="title">Sun adds warmth.</div><div class="body">Status pills, ratings, KPI numbers, the "You grow" half of the tagline on dark backgrounds. Never use Sun for primary actions — it competes with copper.</div></div>
+  <div class="principle"><div class="title">Midnight grounds.</div><div class="body">Type, headers, surfaces that need authority. Pair with Paper for the lightweight site mode and with Sun for highlight moments.</div></div>
+  <div class="principle"><div class="title">Use Copper Light on dark backgrounds.</div><div class="body">Regular Copper goes muddy on Midnight. Swap to Copper Light (#E07142) when the surface is dark.</div></div>
+
+  <!-- ─── 03 TYPOGRAPHY ─── -->
+  <h2 id="typography">03 · Typography</h2>
+  <div class="grid2">
+    <div>
+      <h3 style="margin-top: 0;">Fraunces <span class="pill">display</span></h3>
+      <p>Headlines, the wordmark, hero copy. Weight 600 for the wordmark; weight 800 or 900 for big hero text. Use italic at weight 400 for the "ai" treatment and the "You grow" tagline accent.</p>
+      <div style="font-family: var(--tg-font-display); font-weight: 800; font-size: 64px; line-height: 0.95; letter-spacing: -0.035em; margin-top: 14px;">
+        We answer.<br />
+        <span style="font-style: italic; font-weight: 400; color: var(--tg-copper);">You grow.</span>
+      </div>
+    </div>
+    <div>
+      <h3 style="margin-top: 0;">Manrope <span class="pill">body</span></h3>
+      <p>Everything else — body text, nav, buttons, forms. Weights 500 (body), 600 (buttons / emphasis), 700–800 (subheads).</p>
+      <div style="margin-top: 14px;">
+        <div style="font-family: var(--tg-font-body); font-weight: 700; font-size: 22px; letter-spacing: -0.01em;">Subhead in Manrope 700</div>
+        <div style="font-family: var(--tg-font-body); font-weight: 500; font-size: 16px; line-height: 1.55; color: rgba(10,22,40,0.78); margin-top: 8px;">Body copy in Manrope 500. Comfortable for paragraphs, easy at small sizes, plays nicely beneath Fraunces headings.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top: 32px;">Type scale</h3>
+  <pre>display-xl  Fraunces 900   <span class="key">112px</span>  / <span class="key">0.92</span>  / <span class="key">-0.04em</span>   <span class="com">// hero headline</span>
+display-lg  Fraunces 800    <span class="key">72px</span>  / <span class="key">0.96</span>  / <span class="key">-0.035em</span>  <span class="com">// section headline</span>
+display-md  Fraunces 700    <span class="key">48px</span>  / <span class="key">1.05</span>  / <span class="key">-0.025em</span>  <span class="com">// page title</span>
+heading     Manrope 700     <span class="key">22px</span>  / <span class="key">1.30</span>  / <span class="key">-0.01em</span>   <span class="com">// h3</span>
+body        Manrope 500     <span class="key">16px</span>  / <span class="key">1.55</span>                  <span class="com">// paragraph</span>
+caption     Manrope 600     <span class="key">12px</span>  / <span class="key">1.40</span>  / <span class="key">+0.02em</span>   <span class="com">// labels</span>
+eyebrow     Manrope 700     <span class="key">12px</span>  / <span class="key">1.20</span>  / <span class="key">+0.22em</span>   <span class="com">// uppercase eyebrows</span></pre>
+
+  <!-- ─── 04 TOKENS ─── -->
+  <h2 id="tokens">04 · Design tokens</h2>
+  <p>Drop these into your project. Three formats — pick the one that matches your stack.</p>
+
+  <h3>CSS custom properties · <code>app/globals.css</code></h3>
+  <pre>:root {
+  <span class="com">/* Color */</span>
+  --tg-midnight:     <span class="str">#0a1628</span>;
+  --tg-steel:        <span class="str">#2a3442</span>;
+  --tg-paper:        <span class="str">#f2ede2</span>;
+  --tg-bone:         <span class="str">#e6dfcf</span>;
+  --tg-cream:        <span class="str">#faf6ec</span>;
+  --tg-copper:       <span class="str">#c7542b</span>;
+  --tg-copper-light: <span class="str">#e07142</span>;
+  --tg-sun:          <span class="str">#ffb84a</span>;
+
+  <span class="com">/* Type */</span>
+  --tg-font-display: <span class="str">'Fraunces'</span>, Georgia, serif;
+  --tg-font-body:    <span class="str">'Manrope'</span>, system-ui, sans-serif;
+  --tg-font-mono:    <span class="str">'JetBrains Mono'</span>, ui-monospace, monospace;
+
+  <span class="com">/* Radius */</span>
+  --tg-radius-sm: <span class="key">8px</span>;
+  --tg-radius-md: <span class="key">12px</span>;
+  --tg-radius-lg: <span class="key">18px</span>;
+  --tg-radius-pill: <span class="key">999px</span>;
+
+  <span class="com">/* Shadow */</span>
+  --tg-shadow-sm: <span class="key">0</span> <span class="key">1px</span> <span class="key">2px</span> rgba(10,22,40,0.05);
+  --tg-shadow-md: <span class="key">0</span> <span class="key">12px</span> <span class="key">28px</span> rgba(10,22,40,0.08);
+  --tg-shadow-lg: <span class="key">0</span> <span class="key">22px</span> <span class="key">48px</span> rgba(10,22,40,0.12);
+}</pre>
+
+  <h3 style="margin-top: 32px;">Tailwind config · <code>tailwind.config.js</code></h3>
+  <pre>module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        midnight:    <span class="str">'#0a1628'</span>,
+        steel:       <span class="str">'#2a3442'</span>,
+        paper:       <span class="str">'#f2ede2'</span>,
+        bone:        <span class="str">'#e6dfcf'</span>,
+        cream:       <span class="str">'#faf6ec'</span>,
+        copper: {
+          DEFAULT:   <span class="str">'#c7542b'</span>,
+          light:     <span class="str">'#e07142'</span>,
+        },
+        sun:         <span class="str">'#ffb84a'</span>,
+      },
+      fontFamily: {
+        display: [<span class="str">'Fraunces'</span>, <span class="str">'Georgia'</span>, <span class="str">'serif'</span>],
+        body:    [<span class="str">'Manrope'</span>, <span class="str">'system-ui'</span>, <span class="str">'sans-serif'</span>],
+        mono:    [<span class="str">'JetBrains Mono'</span>, <span class="str">'ui-monospace'</span>, <span class="str">'monospace'</span>],
+      },
+    },
+  },
+};</pre>
+
+  <h3 style="margin-top: 32px;">JSON · <code>brand-tokens.json</code></h3>
+  <pre>{
+  <span class="key">"color"</span>: {
+    <span class="key">"midnight"</span>:    <span class="str">"#0a1628"</span>,
+    <span class="key">"steel"</span>:       <span class="str">"#2a3442"</span>,
+    <span class="key">"paper"</span>:       <span class="str">"#f2ede2"</span>,
+    <span class="key">"bone"</span>:        <span class="str">"#e6dfcf"</span>,
+    <span class="key">"cream"</span>:       <span class="str">"#faf6ec"</span>,
+    <span class="key">"copper"</span>:      <span class="str">"#c7542b"</span>,
+    <span class="key">"copperLight"</span>: <span class="str">"#e07142"</span>,
+    <span class="key">"sun"</span>:         <span class="str">"#ffb84a"</span>
+  },
+  <span class="key">"font"</span>: {
+    <span class="key">"display"</span>: <span class="str">"Fraunces, Georgia, serif"</span>,
+    <span class="key">"body"</span>:    <span class="str">"Manrope, system-ui, sans-serif"</span>,
+    <span class="key">"mono"</span>:    <span class="str">"JetBrains Mono, ui-monospace, monospace"</span>
+  }
+}</pre>
+
+  <!-- ─── 05 HERO ─── -->
+  <h2 id="hero">05 · Hero section <span class="pill">production-ready</span></h2>
+  <p>Below is the hero section from "Suggested direction A" rendered in HTML/CSS — what you see is exactly what's specified. Copy the markup and CSS straight into your project.</p>
+
+  <div class="hero-preview" style="margin-top: 18px;">
+    <div class="nav">
+      <span class="nav-logo">T<span class="ai">ai</span>ngo</span>
+      <div class="nav-links">
+        <span>Product</span><span>Industries</span><span>Pricing</span><span>Customers</span>
+        <span class="nav-cta">Book a demo</span>
+      </div>
+    </div>
+    <div class="body">
+      <div class="eyebrow">AI Receptionists for Home Services</div>
+      <h1 class="head">We answer.<br /><span class="grow">You grow.</span></h1>
+      <p class="sub">Taingo answers your phone 24/7, books jobs on your calendar, and sounds exactly like someone on your team. Built for HVAC, roofing, and garage doors.</p>
+      <div class="ctas">
+        <span class="btn-prim">Start free trial</span>
+        <span class="btn-sec">Hear a demo call →</span>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top: 32px;">Hero markup · <code>app/page.tsx</code> (or any framework)</h3>
+  <pre>&lt;header className=<span class="str">"hero"</span>&gt;
+  &lt;nav className=<span class="str">"hero__nav"</span>&gt;
+    &lt;a className=<span class="str">"hero__logo"</span> href=<span class="str">"/"</span>&gt;
+      T&lt;span className=<span class="str">"ai"</span>&gt;ai&lt;/span&gt;ngo
+    &lt;/a&gt;
+    &lt;ul className=<span class="str">"hero__links"</span>&gt;
+      &lt;li&gt;Product&lt;/li&gt;
+      &lt;li&gt;Industries&lt;/li&gt;
+      &lt;li&gt;Pricing&lt;/li&gt;
+      &lt;li&gt;Customers&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;a className=<span class="str">"btn btn--primary"</span> href=<span class="str">"/demo"</span>&gt;Book a demo&lt;/a&gt;
+  &lt;/nav&gt;
+
+  &lt;section className=<span class="str">"hero__body"</span>&gt;
+    &lt;p className=<span class="str">"eyebrow"</span>&gt;AI Receptionists for Home Services&lt;/p&gt;
+    &lt;h1 className=<span class="str">"hero__headline"</span>&gt;
+      We answer.&lt;br /&gt;&lt;span className=<span class="str">"accent"</span>&gt;You grow.&lt;/span&gt;
+    &lt;/h1&gt;
+    &lt;p className=<span class="str">"hero__sub"</span>&gt;
+      Taingo answers your phone 24/7, books jobs on your calendar, and
+      sounds exactly like someone on your team. Built for HVAC, roofing,
+      and garage doors.
+    &lt;/p&gt;
+    &lt;div className=<span class="str">"hero__ctas"</span>&gt;
+      &lt;a className=<span class="str">"btn btn--primary"</span>&gt;Start free trial&lt;/a&gt;
+      &lt;a className=<span class="str">"btn btn--secondary"</span>&gt;Hear a demo call →&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+&lt;/header&gt;</pre>
+
+  <h3 style="margin-top: 24px;">Hero CSS</h3>
+  <pre>.hero {
+  background: var(--tg-paper);
+  color: var(--tg-midnight);
+}
+
+.hero__nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: <span class="key">22px</span> <span class="key">48px</span>;
+  border-bottom: <span class="key">1px</span> solid rgba(10,22,40,0.10);
+}
+
+.hero__logo {
+  font-family: var(--tg-font-display);
+  font-weight: <span class="key">600</span>;
+  font-size: <span class="key">28px</span>;
+  letter-spacing: <span class="key">-0.005em</span>;
+  color: var(--tg-midnight); text-decoration: none;
+}
+.hero__logo .ai {
+  font-style: italic; font-weight: <span class="key">400</span>;
+  color: var(--tg-copper);
+  margin-left: <span class="key">-0.12em</span>;
+}
+
+.hero__links {
+  display: flex; gap: <span class="key">28px</span>; align-items: center;
+  list-style: none; margin: 0; padding: 0;
+  font-size: <span class="key">14px</span>; font-weight: <span class="key">500</span>;
+}
+
+.hero__body { padding: <span class="key">96px</span> <span class="key">48px</span>; }
+
+.eyebrow {
+  font-size: <span class="key">13px</span>;
+  letter-spacing: <span class="key">0.22em</span>;
+  text-transform: uppercase;
+  font-weight: <span class="key">700</span>;
+  color: var(--tg-copper);
+  margin: <span class="key">0</span> <span class="key">0</span> <span class="key">22px</span>;
+}
+
+.hero__headline {
+  font-family: var(--tg-font-body);  <span class="com">/* Manrope/Archivo for the headline */</span>
+  font-weight: <span class="key">900</span>;
+  font-size: clamp(<span class="key">56px</span>, <span class="key">9vw</span>, <span class="key">124px</span>);
+  line-height: <span class="key">0.92</span>;
+  letter-spacing: <span class="key">-0.04em</span>;
+  margin: <span class="key">0</span> <span class="key">0</span> <span class="key">24px</span>;
+  max-width: <span class="key">1080px</span>;
+}
+.hero__headline .accent { color: var(--tg-copper); }
+
+.hero__sub {
+  font-size: <span class="key">19px</span>;
+  line-height: <span class="key">1.5</span>;
+  max-width: <span class="key">640px</span>;
+  color: rgba(10,22,40,0.80);
+  margin: <span class="key">0</span> <span class="key">0</span> <span class="key">28px</span>;
+}
+
+.hero__ctas { display: flex; gap: <span class="key">12px</span>; }
+
+.btn {
+  display: inline-block;
+  padding: <span class="key">14px</span> <span class="key">26px</span>;
+  border-radius: var(--tg-radius-md);
+  font-weight: <span class="key">600</span>; font-size: <span class="key">15px</span>;
+  text-decoration: none;
+  transition: transform <span class="key">0.15s</span> ease, box-shadow <span class="key">0.15s</span> ease;
+}
+.btn--primary {
+  background: var(--tg-copper);
+  color: var(--tg-paper);
+}
+.btn--primary:hover { transform: translateY(-1px); box-shadow: var(--tg-shadow-md); }
+
+.btn--secondary {
+  border: <span class="key">1.5px</span> solid rgba(10,22,40,0.20);
+  color: var(--tg-midnight); background: transparent;
+}
+.btn--secondary:hover { border-color: var(--tg-copper); color: var(--tg-copper); }</pre>
+
+  <!-- ─── 06 COMPONENTS ─── -->
+  <h2 id="components">06 · Component patterns</h2>
+  <p>Smaller pieces from the design canvas, ready to drop into the site.</p>
+
+  <h3>Status pill (Sun)</h3>
+  <pre>&lt;span className=<span class="str">"status-pill"</span>&gt;
+  &lt;span className=<span class="str">"status-pill__dot"</span> /&gt;
+  Live · 12 calls today
+&lt;/span&gt;
+
+.status-pill {
+  display: inline-flex; align-items: center; gap: <span class="key">8px</span>;
+  background: rgba(255,184,74, <span class="key">0.20</span>);
+  color: <span class="str">#8a5a10</span>;
+  padding: <span class="key">5px</span> <span class="key">12px</span>;
+  border-radius: var(--tg-radius-pill);
+  font-size: <span class="key">13px</span>; font-weight: <span class="key">700</span>;
+}
+.status-pill__dot {
+  width: <span class="key">8px</span>; height: <span class="key">8px</span>; border-radius: <span class="key">50%</span>;
+  background: var(--tg-sun);
+  box-shadow: <span class="key">0</span> <span class="key">0</span> <span class="key">0</span> <span class="key">3px</span> rgba(255,184,74, <span class="key">0.35</span>);
+}</pre>
+
+  <h3 style="margin-top: 24px;">KPI on dark (Sun)</h3>
+  <pre>&lt;div className=<span class="str">"kpi"</span>&gt;
+  &lt;p className=<span class="str">"eyebrow"</span> style={{color: <span class="str">'rgba(242,237,226,0.55)'</span>}}&gt;30-day result&lt;/p&gt;
+  &lt;p className=<span class="str">"kpi__value"</span>&gt;+37%&lt;/p&gt;
+  &lt;p className=<span class="str">"kpi__label"</span>&gt;more booked jobs&lt;/p&gt;
+&lt;/div&gt;
+
+.kpi { background: var(--tg-midnight); color: var(--tg-paper); padding: <span class="key">28px</span>; border-radius: var(--tg-radius-lg); }
+.kpi__value {
+  font-family: var(--tg-font-body); font-weight: <span class="key">800</span>;
+  font-size: <span class="key">56px</span>; letter-spacing: <span class="key">-0.03em</span>; line-height: <span class="key">1</span>;
+  color: var(--tg-sun);
+  margin: <span class="key">8px</span> <span class="key">0</span> <span class="key">4px</span>;
+}
+.kpi__label { font-size: <span class="key">14px</span>; opacity: <span class="key">0.75</span>; }</pre>
+
+  <!-- ─── 07 VOICE ─── -->
+  <h2 id="voice">07 · Voice &amp; usage</h2>
+
+  <div class="principle"><div class="title">Tagline: "We answer. You grow."</div><div class="body">Always two sentences with a period after each. The accent color goes on "You grow" only. Don't shorten it to "we answer, you grow" — the periods do the work.</div></div>
+  <div class="principle"><div class="title">Logo lockup with tagline.</div><div class="body">Stack the wordmark above a 3px copper rule, with the tagline below in spaced caps (Manrope 500, letter-spacing 0.32em). Or set the tagline beside the wordmark in Fraunces 600 with the accent on "You grow".</div></div>
+  <div class="principle"><div class="title">The italic "ai" is the brand.</div><div class="body">Wherever Taingo appears in body copy on the site, mark it up with the same kerning and copper italic — it's small but consistent, and it reinforces the wordmark.</div></div>
+  <div class="principle"><div class="title">Talk like the trades.</div><div class="body">Short sentences, plain words. "Never miss a call." "Books jobs while you're on a roof." Avoid SaaS-ese.</div></div>
+
+  <p style="margin-top: 56px; font-family: var(--tg-font-mono); font-size: 12px; color: rgba(10,22,40,0.45); border-top: 1px solid rgba(10,22,40,0.08); padding-top: 18px;">
+    Generated for Cursor · Drag any logo file to your project's <code style="background: rgba(10,22,40,0.06); color: rgba(10,22,40,0.7);">/public</code> folder · Paste the token files into your project root · Hand this whole HTML to Cursor as context.
+  </p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Brand colors */
+  --color-background: #f2ede2;
+  --color-foreground: #0a1628;
+  --color-midnight: #0a1628;
+  --color-steel: #2a3442;
+  --color-paper: #f2ede2;
+  --color-bone: #e6dfcf;
+  --color-cream: #faf6ec;
+  --color-copper: #c7542b;
+  --color-copper-light: #e07142;
+  --color-sun: #ffb84a;
+
+  /* Typography */
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-fraunces);
+  --font-mono: var(--font-jetbrains);
+}
+
+body {
+  background: #f2ede2;
+  color: #0a1628;
+  font-family: var(--font-manrope), 'Manrope', system-ui, sans-serif;
+  line-height: 1.55;
+}
+
+html {
+  scroll-behavior: smooth;
+}
