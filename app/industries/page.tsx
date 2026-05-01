@@ -159,7 +159,7 @@ export default function IndustriesPage() {
           </p>
           <div className="w-full min-w-0 overflow-x-auto overflow-y-visible pb-1 [scrollbar-width:thin] flex justify-center mb-5">
             <h1
-              className="font-display font-black text-midnight leading-tight whitespace-nowrap shrink-0 inline-block"
+              className="font-black text-midnight leading-tight whitespace-nowrap shrink-0 inline-block [font-family:var(--font-poppins),system-ui,sans-serif]"
               style={{ fontSize: "clamp(36px, 6vw, 64px)", letterSpacing: "-0.03em" }}
             >
               Built for Your Specific Trade

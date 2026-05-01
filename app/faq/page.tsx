@@ -131,10 +131,13 @@ export default function FAQPage() {
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-copper mb-4">
             FAQ
           </p>
-          <div className="w-full min-w-0 overflow-x-auto overflow-y-visible pb-1 [scrollbar-width:thin] flex justify-center mb-5">
+          <div className="mb-5 w-full min-w-0 overflow-x-auto overflow-y-visible pb-1 [scrollbar-width:thin] flex justify-center px-2">
             <h1
               className="font-black text-midnight leading-tight [font-family:var(--font-poppins),system-ui,sans-serif] whitespace-nowrap shrink-0 inline-block"
-              style={{ fontSize: "clamp(36px, 6vw, 64px)", letterSpacing: "-0.03em" }}
+              style={{
+                fontSize: "clamp(13px, 4.1vw + 0.9375rem, 4rem)",
+                letterSpacing: "-0.04em",
+              }}
             >
               Frequently Asked Questions
             </h1>

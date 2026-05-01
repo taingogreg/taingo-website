@@ -154,14 +154,13 @@ export default function FeaturesPage() {
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-copper mb-4">
             Platform Features
           </p>
-          <div className="w-full min-w-0 overflow-x-auto overflow-y-visible pb-1 [scrollbar-width:thin] flex justify-center mb-5">
-            <h1
-              className="font-bold text-midnight leading-tight [font-family:var(--font-poppins),system-ui,sans-serif] whitespace-nowrap shrink-0 inline-block"
-              style={{ fontSize: "clamp(36px, 6vw, 64px)", letterSpacing: "-0.03em" }}
-            >
-              Your AI Front Desk, Built to Run Your Business
-            </h1>
-          </div>
+          <h1
+            className="font-bold text-midnight leading-tight mb-5 [font-family:var(--font-poppins),system-ui,sans-serif] max-w-4xl mx-auto"
+            style={{ fontSize: "clamp(36px, 6vw, 64px)", letterSpacing: "-0.03em" }}
+          >
+            <span className="block">Your AI Front Desk,</span>
+            <span className="block">Built to Run Your Business</span>
+          </h1>
           <p className="text-lg text-midnight/65 max-w-2xl mx-auto mb-8">
             Taingo combines powerful AI with systems designed for home service
             businesses to answer every call, book more jobs, and deliver a
