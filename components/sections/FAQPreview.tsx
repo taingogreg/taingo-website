@@ -33,6 +33,10 @@ export default function FAQPreview() {
           eyebrow="FAQ"
           title="Common Questions Answered"
           subtitle="Everything you need to know about getting started with Taingo."
+          titleFont="poppins"
+          titleSingleLine
+          eyebrowVariant="prominent"
+          subtitleVariant="emphasis"
         />
 
         <FAQAccordion items={previewFAQs} />

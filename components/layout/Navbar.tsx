@@ -25,38 +25,30 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         scrolled
-          ? "bg-paper/95 backdrop-blur-sm shadow-sm border-b border-bone"
-          : "bg-paper border-b border-bone/60"
+          ? "bg-paper/95 backdrop-blur-md shadow-[0_10px_40px_-12px_rgba(10,22,40,0.2)] border-b border-midnight/12"
+          : "bg-paper/98 backdrop-blur-sm shadow-[0_2px_16px_-4px_rgba(10,22,40,0.1)] border-b border-midnight/8"
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[4.75rem] flex items-center justify-between">
         {/* Logo wordmark */}
         <Link
           href="/"
-          className="font-display font-semibold text-midnight shrink-0 select-none"
-          style={{ fontSize: "28px", letterSpacing: "-0.005em", lineHeight: 1 }}
+          className="font-display font-semibold text-midnight shrink-0 select-none text-[2rem] sm:text-[2.125rem] md:text-[2.35rem] tracking-[-0.02em] leading-none hover:opacity-90 transition-opacity"
         >
           T
-          <span
-            style={{
-              fontStyle: "italic",
-              fontWeight: 400,
-              color: "#c7542b",
-              marginLeft: "-0.12em",
-            }}
-          >
+          <span className="italic font-normal text-copper -ml-[0.12em]">
             ai
           </span>
           ngo
         </Link>
 
         {/* Desktop nav links */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-9 lg:gap-10">
           {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="text-sm font-medium text-midnight/80 hover:text-midnight transition-colors"
+              className="text-[15px] font-semibold text-midnight tracking-tight hover:text-copper transition-colors"
             >
               {link.label}
             </Link>
@@ -67,7 +59,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <Link
             href="/contact"
-            className="bg-copper hover:bg-copper-light text-paper text-sm font-semibold px-4 py-2.5 rounded-xl transition-all duration-150 hover:-translate-y-px hover:shadow-md"
+            className="bg-copper hover:bg-copper-light text-paper text-[15px] font-semibold px-5 py-3 rounded-xl shadow-sm hover:shadow-md transition-all duration-150 hover:-translate-y-px"
           >
             Book a demo
           </Link>
@@ -79,7 +71,7 @@ export default function Navbar() {
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
-          {isOpen ? <X size={22} /> : <Menu size={22} />}
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </nav>
 
@@ -90,7 +82,7 @@ export default function Navbar() {
             <Link
               key={link.label}
               href={link.href}
-              className="block px-3 py-3 rounded-lg text-sm font-medium text-midnight/80 hover:text-midnight hover:bg-bone transition-colors"
+              className="block px-3 py-3.5 rounded-lg text-base font-semibold text-midnight hover:text-copper hover:bg-bone transition-colors"
               onClick={() => setIsOpen(false)}
             >
               {link.label}
@@ -99,7 +91,7 @@ export default function Navbar() {
           <div className="pt-3 border-t border-bone mt-3">
             <Link
               href="/contact"
-              className="block text-center bg-copper hover:bg-copper-light text-paper px-4 py-3 rounded-xl text-sm font-semibold transition-colors"
+              className="block text-center bg-copper hover:bg-copper-light text-paper px-4 py-3.5 rounded-xl text-base font-semibold shadow-sm transition-colors"
               onClick={() => setIsOpen(false)}
             >
               Book a demo

@@ -12,7 +12,6 @@ import {
   CheckCircle,
   ArrowRight,
   Clock,
-  Shield,
   BarChart3,
 } from "lucide-react";
 import CTABanner from "@/components/sections/CTABanner";
@@ -86,7 +85,7 @@ const featureDetails = [
   },
   {
     icon: Globe,
-    title: "Multilingual Communication (31 Languages)",
+    title: "Multilingual Communication",
     tagline: "Serve every customer in their language.",
     photo: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800&q=80&auto=format&fit=crop",
     photoAlt: "Electrician working on a panel installation",
@@ -94,7 +93,7 @@ const featureDetails = [
       "Taingo supports 31 languages, including English and Spanish. It detects the caller's preferred language and switches seamlessly — providing the same quality intake and scheduling experience regardless of what language they speak. No multilingual hire required.",
     benefits: [
       "Automatic language detection on every call",
-      "Full intake and scheduling in 31 languages",
+      "Full intake and scheduling",
       "Multilingual confirmation messages and reminders",
       "Expands your addressable market significantly",
     ],
@@ -155,12 +154,14 @@ export default function FeaturesPage() {
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-copper mb-4">
             Platform Features
           </p>
-          <h1
-            className="font-display font-black text-midnight mb-5 leading-tight"
-            style={{ fontSize: "clamp(36px, 6vw, 64px)", letterSpacing: "-0.03em" }}
-          >
-            Your AI Front Desk, Built to Run Your Business
-          </h1>
+          <div className="w-full min-w-0 overflow-x-auto overflow-y-visible pb-1 [scrollbar-width:thin] flex justify-center mb-5">
+            <h1
+              className="font-bold text-midnight leading-tight [font-family:var(--font-poppins),system-ui,sans-serif] whitespace-nowrap shrink-0 inline-block"
+              style={{ fontSize: "clamp(36px, 6vw, 64px)", letterSpacing: "-0.03em" }}
+            >
+              Your AI Front Desk, Built to Run Your Business
+            </h1>
+          </div>
           <p className="text-lg text-midnight/65 max-w-2xl mx-auto mb-8">
             Taingo combines powerful AI with systems designed for home service
             businesses to answer every call, book more jobs, and deliver a
@@ -186,11 +187,10 @@ export default function FeaturesPage() {
       {/* Quick stat bar */}
       <section className="bg-midnight py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center max-w-4xl mx-auto">
             {[
               { icon: Clock, value: "24/7/365", label: "Always On" },
               { icon: Phone, value: "Under 2 seconds", label: "Answer Time" },
-              { icon: Shield, value: "99.9%", label: "Uptime SLA" },
               { icon: CheckCircle, value: "Fast Setup. Guided Launch.", label: "Go-Live Time" },
             ].map((item) => {
               const Icon = item.icon;

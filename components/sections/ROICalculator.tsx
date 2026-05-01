@@ -81,7 +81,7 @@ export default function ROICalculator() {
             ROI Calculator
           </p>
           <h2
-            className="font-display font-black text-paper leading-tight mb-3"
+            className="font-black text-paper leading-tight mb-3 [font-family:var(--font-poppins),system-ui,sans-serif]"
             style={{ fontSize: "clamp(28px, 4vw, 48px)", letterSpacing: "-0.025em" }}
           >
             Unlock Your Hidden Revenue
@@ -157,28 +157,33 @@ export default function ROICalculator() {
           <div className="space-y-4">
             {/* Monthly */}
             <div className="bg-midnight border border-steel rounded-2xl p-6">
-              <p className="text-paper/45 text-[10px] font-bold tracking-[0.22em] uppercase mb-2">
-                Revenue you&rsquo;re losing / month
-              </p>
+              <div className="w-full min-w-0 overflow-x-auto overflow-y-visible pb-0.5 [scrollbar-width:thin] mb-2">
+                <p className="text-paper/82 font-extrabold uppercase tracking-[0.2em] whitespace-nowrap text-[clamp(10px,1.35vw,0.6875rem)]">
+                  Revenue you&rsquo;re losing / month
+                </p>
+              </div>
               <p
-                className="font-display font-black text-sun leading-none tabular-nums"
+                className="font-bold text-sun leading-none tabular-nums [font-family:var(--font-poppins),system-ui,sans-serif]"
                 style={{ fontSize: "clamp(48px, 6vw, 72px)", letterSpacing: "-0.03em" }}
               >
                 {fmt$(lostMonth)}
               </p>
-              <p className="text-paper/45 text-xs mt-2">
-                That&rsquo;s {missedNew.toFixed(1)} new customers slipping away every day.
-              </p>
+              <div className="w-full min-w-0 overflow-x-auto overflow-y-visible pb-0.5 [scrollbar-width:thin] mt-2">
+                <p className="text-paper/75 font-semibold whitespace-nowrap tracking-tight text-[clamp(11px,1.85vw,0.8125rem)]">
+                  That&rsquo;s {missedNew.toFixed(1)} new customers slipping away every
+                  day.
+                </p>
+              </div>
             </div>
 
             {/* Yearly */}
             <div className="bg-copper rounded-2xl p-6 flex items-center justify-between gap-4">
               <div>
-                <p className="text-paper/70 text-[10px] font-bold tracking-[0.22em] uppercase mb-1">
+                <p className="text-paper text-xs font-extrabold tracking-[0.2em] uppercase mb-1">
                   Yearly opportunity
                 </p>
                 <p
-                  className="font-display font-black text-paper leading-none tabular-nums"
+                  className="font-bold text-paper leading-none tabular-nums [font-family:var(--font-poppins),system-ui,sans-serif]"
                   style={{ fontSize: "clamp(36px, 4vw, 56px)", letterSpacing: "-0.03em" }}
                 >
                   {fmt$(lostYear)}
@@ -192,9 +197,12 @@ export default function ROICalculator() {
               </Link>
             </div>
 
-            <p className="text-paper/30 text-xs text-center px-2">
-              Estimate based on your inputs. Actual results vary by industry and market.
-            </p>
+            <div className="w-full min-w-0 overflow-x-auto overflow-y-visible pb-0.5 [scrollbar-width:thin] flex justify-center px-2">
+              <p className="text-paper/70 text-[clamp(11px,1.65vw,0.8125rem)] font-semibold whitespace-nowrap tracking-tight text-center">
+                Estimate based on your inputs. Actual results vary by industry and
+                market.
+              </p>
+            </div>
           </div>
         </div>
       </div>

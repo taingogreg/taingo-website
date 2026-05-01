@@ -29,7 +29,7 @@ const features = [
   },
   {
     icon: Globe,
-    title: "Multilingual Communication (31 Languages)",
+    title: "Multilingual Communication",
     description:
       "Can be set up to handle inquiries fluently in 31 languages — including English and Spanish — broadening your customer reach in diverse markets without hiring multilingual staff.",
   },
@@ -55,6 +55,8 @@ export default function FeaturesSection() {
           eyebrow="What Taingo Does"
           title="Every Feature Your Business Needs"
           subtitle="Taingo handles the phone so you can focus on what you do best — delivering great service."
+          titleFont="poppins"
+          titleSingleLine
         />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -81,12 +83,12 @@ export default function FeaturesSection() {
 
         {/* 7th feature — lead qualification — highlighted */}
         <div className="mt-5 bg-midnight rounded-2xl p-8 flex flex-col md:flex-row items-start md:items-center gap-6">
-          <div className="w-14 h-14 bg-copper/15 rounded-xl flex items-center justify-center shrink-0">
-            <Filter className="w-7 h-7 text-copper-light" />
+          <div className="w-14 h-14 bg-steel border border-paper/15 rounded-xl flex items-center justify-center shrink-0">
+            <Filter className="w-7 h-7 text-sun" />
           </div>
           <div className="flex-1">
             <h3 className="font-bold text-paper text-xl mb-2">{features[6].title}</h3>
-            <p className="text-paper/65 leading-relaxed">{features[6].description}</p>
+            <p className="text-paper/82 leading-relaxed">{features[6].description}</p>
           </div>
           <Link
             href="/features"

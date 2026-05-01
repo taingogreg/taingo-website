@@ -17,7 +17,7 @@ export default function CTABanner() {
         </div>
 
         <h2
-          className="font-display font-black text-paper leading-tight mb-4"
+          className="font-black text-paper leading-tight mb-4 [font-family:var(--font-poppins),system-ui,sans-serif]"
           style={{ fontSize: "clamp(32px, 6vw, 64px)", letterSpacing: "-0.03em" }}
         >
           Stop Losing Business to{" "}
@@ -45,7 +45,7 @@ export default function CTABanner() {
           </Link>
         </div>
 
-        <p className="mt-4 text-paper/35 text-sm">
+        <p className="mt-5 text-paper/72 text-sm sm:text-base font-medium leading-snug max-w-xl mx-auto">
           No credit card required. Live demo in under 30 minutes.
         </p>
       </div>

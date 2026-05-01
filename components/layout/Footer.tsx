@@ -40,7 +40,7 @@ export default function Footer() {
       <div className="border-b border-steel">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 text-center">
           <h2
-            className="font-display font-black text-paper leading-tight tracking-tight mb-5"
+            className="font-black text-paper leading-tight tracking-tight mb-5 [font-family:var(--font-poppins),system-ui,sans-serif]"
             style={{ fontSize: "clamp(36px, 6vw, 70px)", letterSpacing: "-0.03em" }}
           >
             Ready to stop missing calls?

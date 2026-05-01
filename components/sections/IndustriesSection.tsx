@@ -61,6 +61,8 @@ export default function IndustriesSection() {
           eyebrow="Industry Solutions"
           title="Built for Your Trade"
           subtitle="Taingo understands the unique language and workflows of home service businesses — not just generic calls."
+          titleFont="poppins"
+          titleSingleLine
         />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">

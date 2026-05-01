@@ -1,5 +1,4 @@
 import { PhoneIncoming, Bot, CalendarCheck, ArrowRight } from "lucide-react";
-import Image from "next/image";
 import SectionHeader from "@/components/ui/SectionHeader";
 
 const steps = [
@@ -34,6 +33,8 @@ export default function HowItWorks() {
           eyebrow="How It Works"
           title="Up and Running in 3 Simple Steps"
           subtitle="No complicated setup. We customize your AI receptionist to your business and have you live in days—not weeks."
+          titleFont="poppins"
+          titleSingleLine
         />
 
         {/* Steps */}
@@ -81,29 +82,6 @@ export default function HowItWorks() {
                 <p className="text-xs text-midnight/50 mt-1">{item.sub}</p>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Photo strip */}
-        <div className="mt-10 rounded-2xl overflow-hidden relative h-72 md:h-80">
-          <Image
-            src="https://images.unsplash.com/photo-1642749776312-aa42ce20c9f5?w=1400&q=80&auto=format&fit=crop"
-            alt="Service technicians working on rooftop equipment while Taingo handles incoming calls"
-            fill
-            className="object-cover object-center"
-            sizes="(max-width: 1280px) 100vw, 1280px"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-midnight/80 via-midnight/40 to-transparent" />
-          <div className="absolute inset-0 flex items-center">
-            <div className="px-10 max-w-lg">
-              <p className="text-paper/60 text-xs font-bold uppercase tracking-[0.2em] mb-3">
-                The Result
-              </p>
-              <p className="text-paper text-2xl md:text-3xl font-bold leading-snug">
-                Your techs stay on the job.{" "}
-                <span className="text-sun">Taingo handles every call.</span>
-              </p>
-            </div>
           </div>
         </div>
       </div>

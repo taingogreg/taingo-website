@@ -9,6 +9,8 @@ export default function TestimonialsSection() {
           eyebrow="Be One of the First"
           title="Be One of the First to Try Taingo"
           subtitle="We're working with a limited number of businesses to build and refine our AI receptionists."
+          titleFont="poppins"
+          titleSingleLine
         />
 
         <div className="mt-10 text-center">

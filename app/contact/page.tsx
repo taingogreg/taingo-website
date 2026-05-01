@@ -53,12 +53,14 @@ export default function ContactPage() {
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-copper mb-4">
             Get Started
           </p>
-          <h1
-            className="font-display font-black text-midnight mb-4 leading-tight"
-            style={{ fontSize: "clamp(36px, 6vw, 64px)", letterSpacing: "-0.03em" }}
-          >
-            Request Your Free Demo
-          </h1>
+          <div className="w-full min-w-0 overflow-x-auto overflow-y-visible pb-1 [scrollbar-width:thin] flex justify-center mb-4">
+            <h1
+              className="font-black text-midnight leading-tight [font-family:var(--font-poppins),system-ui,sans-serif] whitespace-nowrap shrink-0 inline-block"
+              style={{ fontSize: "clamp(36px, 6vw, 64px)", letterSpacing: "-0.03em" }}
+            >
+              Request Your Free Demo
+            </h1>
+          </div>
           <p className="text-lg text-midnight/65 max-w-xl mx-auto">
             See Taingo in action in under 30 minutes. Pick a time below and
             we&apos;ll give you a live, personalized demo of how Taingo would work

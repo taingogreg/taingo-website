@@ -35,7 +35,6 @@ const industries = [
       "Automatic scheduling synced to technician availability",
       "Post-call CRM logging with equipment details captured",
     ],
-    useCases: "Maintenance agreements, emergency repairs, new installs, seasonal tune-ups",
   },
   {
     id: "roofing",
@@ -58,7 +57,6 @@ const industries = [
       "Insurance claim type screening and documentation",
       "Instant inspection scheduling with photo follow-up",
     ],
-    useCases: "Storm damage assessments, new roof installs, leak repairs, insurance claims",
   },
   {
     id: "plumbing",
@@ -81,7 +79,6 @@ const industries = [
       "Routine booking handled automatically without dispatcher involvement",
       "Full job history pulled from CRM before technician arrives",
     ],
-    useCases: "Emergency repairs, drain cleaning, water heater replacement, remodel work",
   },
   {
     id: "electrical",
@@ -104,7 +101,6 @@ const industries = [
       "Permit and commercial documentation intake",
       "Licensed crew routing based on job classification",
     ],
-    useCases: "Panel upgrades, EV charger installation, safety inspections, commercial wiring",
   },
   {
     id: "garage-doors",
@@ -127,7 +123,6 @@ const industries = [
       "New door installation lead capture and estimate scheduling",
       "Replacement part capture (brand, model) to reduce return trips",
     ],
-    useCases: "Spring repairs, opener replacement, new door installation, panel damage",
   },
   {
     id: "pest-control",
@@ -150,7 +145,6 @@ const industries = [
       "Automatic recurring plan upsell conversation",
       "Chemical sensitivity and pet/child safety intake",
     ],
-    useCases: "Rodent control, insect treatment, termite inspection, recurring prevention",
   },
 ];
 
@@ -163,12 +157,14 @@ export default function IndustriesPage() {
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-copper mb-4">
             Industry Solutions
           </p>
-          <h1
-            className="font-display font-black text-midnight mb-5 leading-tight"
-            style={{ fontSize: "clamp(36px, 6vw, 64px)", letterSpacing: "-0.03em" }}
-          >
-            Built for Your Specific Trade
-          </h1>
+          <div className="w-full min-w-0 overflow-x-auto overflow-y-visible pb-1 [scrollbar-width:thin] flex justify-center mb-5">
+            <h1
+              className="font-display font-black text-midnight leading-tight whitespace-nowrap shrink-0 inline-block"
+              style={{ fontSize: "clamp(36px, 6vw, 64px)", letterSpacing: "-0.03em" }}
+            >
+              Built for Your Specific Trade
+            </h1>
+          </div>
           <p className="text-lg text-midnight/65 max-w-2xl mx-auto">
             Taingo isn&apos;t a generic answering service. It&apos;s trained on the
             language, urgency, and workflows of home service businesses — so it
@@ -177,15 +173,15 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-      {/* Industry nav */}
-      <section className="sticky top-16 z-40 bg-cream border-b border-bone shadow-sm">
+      {/* Industry nav — centered, scrolls with the page (not sticky) */}
+      <section className="bg-cream border-b border-bone shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex gap-1 overflow-x-auto py-3 scrollbar-none">
+          <div className="flex flex-wrap justify-center gap-x-1 gap-y-2 py-3">
             {industries.map(({ id, name, icon: Icon }) => (
               <a
                 key={id}
                 href={`#${id}`}
-                className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-midnight/65 hover:text-midnight hover:bg-bone rounded-lg whitespace-nowrap transition-colors shrink-0"
+                className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-midnight/65 hover:text-midnight hover:bg-bone rounded-lg whitespace-nowrap transition-colors"
               >
                 <Icon className="w-4 h-4 text-copper" />
                 {name}
@@ -201,72 +197,75 @@ export default function IndustriesPage() {
           const Icon = industry.icon;
           const bg = index % 2 === 0 ? "bg-paper" : "bg-bone";
           return (
-            <section key={industry.id} id={industry.id} className={`${bg} py-20 scroll-mt-32`}>
+            <section
+              key={industry.id}
+              id={industry.id}
+              className={`${bg} py-20 scroll-mt-[5.75rem]`}
+            >
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid md:grid-cols-2 gap-12 items-start">
-                  <div>
-                    <div className="flex items-center gap-3 mb-5">
-                      <div className="w-14 h-14 bg-bone rounded-2xl flex items-center justify-center">
-                        <Icon className="w-7 h-7 text-copper" />
-                      </div>
-                      <div>
-                        <p className="text-xs font-bold uppercase tracking-[0.2em] text-copper">
-                          Industry
-                        </p>
-                        <h2 className="text-2xl font-bold text-midnight">{industry.name}</h2>
-                      </div>
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-10 md:mb-11">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="w-14 h-14 bg-bone rounded-2xl flex items-center justify-center shrink-0">
+                      <Icon className="w-7 h-7 text-copper" />
                     </div>
+                    <div className="min-w-0">
+                      <p className="text-xs font-bold uppercase tracking-[0.2em] text-copper">
+                        Industry
+                      </p>
+                      <h2 className="text-2xl font-bold text-midnight">{industry.name}</h2>
+                    </div>
+                  </div>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-copper hover:bg-copper-light text-paper font-semibold rounded-xl transition-all duration-150 hover:-translate-y-px shadow-sm text-sm shrink-0 self-start sm:self-auto"
+                  >
+                    Get a Demo for {industry.name}
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                  <div>
                     <p className="text-xl font-semibold text-midnight mb-3">{industry.headline}</p>
-                    <p className="text-midnight/65 leading-relaxed mb-6">{industry.description}</p>
-                    <p className="text-sm text-midnight/55 mb-6">
-                      <strong className="text-midnight">Common use cases:</strong>{" "}
-                      {industry.useCases}
-                    </p>
-                    <Link
-                      href="/contact"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-copper hover:bg-copper-light text-paper font-semibold rounded-xl transition-all duration-150 hover:-translate-y-px shadow-sm text-sm"
-                    >
-                      Get a Demo for {industry.name}
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
+                    <p className="text-midnight/65 leading-relaxed">{industry.description}</p>
                   </div>
 
-                  <div className="space-y-5">
-                    <div className="relative rounded-2xl overflow-hidden h-56">
-                      <Image
-                        src={industry.photo}
-                        alt={industry.photoAlt}
-                        fill
-                        className={industry.photoClass}
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                      />
-                    </div>
-                    <div className="bg-copper/8 border border-copper/15 rounded-2xl p-6">
-                      <h3 className="font-bold text-midnight mb-3 flex items-center gap-2">
-                        <Phone className="w-4 h-4 text-copper" /> Common Pain Points
-                      </h3>
-                      <ul className="space-y-2">
-                        {industry.painPoints.map((p) => (
-                          <li key={p} className="text-sm text-midnight/70 flex items-start gap-2">
-                            <span className="mt-0.5 shrink-0 text-copper font-bold">✕</span>
-                            {p}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="bg-midnight/5 border border-midnight/10 rounded-2xl p-6">
-                      <h3 className="font-bold text-midnight mb-3 flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-copper" /> How Taingo Solves It
-                      </h3>
-                      <ul className="space-y-2">
-                        {industry.solutions.map((s) => (
-                          <li key={s} className="text-sm text-midnight/70 flex items-start gap-2">
-                            <CheckCircle className="w-4 h-4 mt-0.5 shrink-0 text-copper" />
-                            {s}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                  <div className="relative rounded-2xl overflow-hidden h-56">
+                    <Image
+                      src={industry.photo}
+                      alt={industry.photoAlt}
+                      fill
+                      className={industry.photoClass}
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+
+                  <div className="bg-copper/8 border border-copper/15 rounded-2xl p-6">
+                    <h3 className="font-bold text-midnight mb-3 flex items-center gap-2">
+                      <Phone className="w-4 h-4 text-copper" /> Common Pain Points
+                    </h3>
+                    <ul className="space-y-2">
+                      {industry.painPoints.map((p) => (
+                        <li key={p} className="text-sm text-midnight/70 flex items-start gap-2">
+                          <span className="mt-0.5 shrink-0 text-copper font-bold">✕</span>
+                          {p}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="bg-midnight/5 border border-midnight/10 rounded-2xl p-6">
+                    <h3 className="font-bold text-midnight mb-3 flex items-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-copper" /> How Taingo Solves It
+                    </h3>
+                    <ul className="space-y-2">
+                      {industry.solutions.map((s) => (
+                        <li key={s} className="text-sm text-midnight/70 flex items-start gap-2">
+                          <CheckCircle className="w-4 h-4 mt-0.5 shrink-0 text-copper" />
+                          {s}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>
