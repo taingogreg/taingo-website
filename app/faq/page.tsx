@@ -127,21 +127,19 @@ export default function FAQPage() {
     <>
       {/* Page Hero */}
       <section className="bg-bone pt-28 pb-16 border-b border-bone">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.22em] text-copper mb-4">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center [container-type:inline-size]">
+          <p className="text-base md:text-lg font-black uppercase tracking-[0.22em] text-copper mb-4">
             FAQ
           </p>
-          <div className="mb-5 w-full min-w-0 overflow-x-auto overflow-y-visible pb-1 [scrollbar-width:thin] flex justify-center px-2">
-            <h1
-              className="font-black text-midnight leading-tight [font-family:var(--font-poppins),system-ui,sans-serif] whitespace-nowrap shrink-0 inline-block"
-              style={{
-                fontSize: "clamp(13px, 4.1vw + 0.9375rem, 4rem)",
-                letterSpacing: "-0.04em",
-              }}
-            >
-              Frequently Asked Questions
-            </h1>
-          </div>
+          <h1
+            className="font-bold text-midnight mb-5 leading-tight [font-family:var(--font-poppins),system-ui,sans-serif] whitespace-nowrap"
+            style={{
+              fontSize: "clamp(12px, calc(100cqi / 18), 3rem)",
+              letterSpacing: "-0.04em",
+            }}
+          >
+            Frequently Asked Questions
+          </h1>
           <p className="text-lg text-midnight/65 max-w-xl mx-auto">
             Everything you need to know about Taingo. Can&apos;t find your answer?{" "}
             <Link href="/contact" className="text-copper hover:text-copper-light font-semibold">
