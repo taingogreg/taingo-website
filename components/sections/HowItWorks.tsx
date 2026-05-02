@@ -35,6 +35,7 @@ export default function HowItWorks() {
           subtitle="No complicated setup. We customize your AI receptionist to your business and have you live in days—not weeks."
           titleFont="poppins"
           titleSingleLine
+          subtitleVariant="emphasis"
         />
 
         {/* Steps */}
@@ -51,11 +52,11 @@ export default function HowItWorks() {
                 <div className="w-20 h-20 bg-bone rounded-2xl border-2 border-bone flex items-center justify-center mb-5">
                   <Icon className="w-9 h-9 text-copper" />
                 </div>
-                <div className="text-xs font-bold uppercase tracking-[0.2em] text-midnight/40 mb-2">
+                <div className="text-sm font-extrabold uppercase tracking-[0.2em] text-midnight/55 mb-2">
                   Step {step.number}
                 </div>
                 <h3 className="text-xl font-bold text-midnight mb-3">{step.title}</h3>
-                <p className="text-midnight/65 leading-relaxed text-sm max-w-xs">
+                <p className="text-[15px] sm:text-base font-medium text-midnight/75 leading-relaxed max-w-xs">
                   {step.description}
                 </p>
                 {index < steps.length - 1 && (
@@ -78,8 +79,8 @@ export default function HowItWorks() {
             ].map((item) => (
               <div key={item.label} className="text-center md:px-8">
                 <p className="text-2xl font-bold text-midnight">{item.value}</p>
-                <p className="text-sm font-semibold text-copper mt-1">{item.label}</p>
-                <p className="text-xs text-midnight/50 mt-1">{item.sub}</p>
+                <p className="text-sm font-bold text-copper mt-1">{item.label}</p>
+                <p className="text-sm font-medium text-midnight/72 mt-1.5 leading-snug">{item.sub}</p>
               </div>
             ))}
           </div>

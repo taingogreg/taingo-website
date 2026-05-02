@@ -78,12 +78,12 @@ export default function IndustriesSection() {
                   <Icon className="w-6 h-6 text-copper" />
                 </div>
                 <h3 className="font-bold text-midnight text-lg mb-2">{industry.name}</h3>
-                <p className="text-midnight/65 text-sm leading-relaxed mb-4 flex-1">
+                <p className="text-[15px] sm:text-base font-medium text-midnight/75 leading-relaxed mb-4 flex-1">
                   {industry.description}
                 </p>
-                <ul className="space-y-1">
+                <ul className="space-y-1.5">
                   {industry.highlights.map((item) => (
-                    <li key={item} className="text-xs text-copper font-semibold">
+                    <li key={item} className="text-sm font-bold text-copper">
                       → {item}
                     </li>
                   ))}
@@ -91,15 +91,6 @@ export default function IndustriesSection() {
               </Link>
             );
           })}
-        </div>
-
-        <div className="mt-10 text-center">
-          <Link
-            href="/industries"
-            className="inline-flex items-center gap-2 px-6 py-3 border-2 border-midnight/20 hover:border-copper hover:text-copper text-midnight font-semibold rounded-xl transition-all duration-150"
-          >
-            Explore All Industries
-          </Link>
         </div>
       </div>
     </section>

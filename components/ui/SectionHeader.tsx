@@ -68,14 +68,14 @@ export default function SectionHeader({
       {titleEl}
       {subtitle && (
         <p
-          className={`mt-4 text-lg leading-relaxed ${
+          className={`mt-4 leading-relaxed ${
             subtitleVariant === "emphasis"
               ? light
-                ? "font-semibold text-paper/82"
-                : "font-semibold text-midnight/85"
+                ? "text-xl font-semibold text-paper/82"
+                : "text-[1.0625rem] sm:text-xl font-bold text-midnight/88"
               : light
-                ? "text-paper/65"
-                : "text-midnight/70"
+                ? "text-lg text-paper/65"
+                : "text-lg text-midnight/70"
           }`}
         >
           {subtitle}
