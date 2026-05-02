@@ -90,11 +90,11 @@ const featureDetails = [
     photo: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800&q=80&auto=format&fit=crop",
     photoAlt: "Electrician working on a panel installation",
     description:
-      "Taingo supports 31 languages, including English and Spanish. It detects the caller's preferred language and switches seamlessly — providing the same quality intake and scheduling experience regardless of what language they speak. No multilingual hire required.",
+      "Taingo supports over 50 languages, including English and Spanish. It detects the caller's preferred language and switches seamlessly — providing the same quality intake and scheduling experience regardless of what language they speak. No multilingual hire required.",
     benefits: [
       "Automatic language detection on every call",
       "Full intake and scheduling",
-      "Multilingual confirmation messages and reminders",
+      "Select which languages your receptionist speaks",
       "Expands your addressable market significantly",
     ],
   },
@@ -151,7 +151,7 @@ export default function FeaturesPage() {
       {/* Page Hero */}
       <section className="bg-bone pt-28 pb-16 border-b border-bone">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.22em] text-copper mb-4">
+          <p className="text-base md:text-lg font-black uppercase tracking-[0.22em] text-copper mb-4">
             Platform Features
           </p>
           <h1

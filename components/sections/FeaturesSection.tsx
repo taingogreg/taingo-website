@@ -31,7 +31,7 @@ const features = [
     icon: Globe,
     title: "Multilingual Communication",
     description:
-      "Can be set up to handle inquiries fluently in 31 languages — including English and Spanish — broadening your customer reach in diverse markets without hiring multilingual staff.",
+      "Can be set up to handle inquiries fluently in over 50 languages — including English and Spanish — broadening your customer reach in diverse markets without hiring multilingual staff.",
   },
   {
     icon: Database,

@@ -51,7 +51,7 @@ const faqCategories = [
       {
         question: "Can Taingo speak Spanish?",
         answer:
-          "Yes. Taingo supports 31 languages, including English and Spanish. It automatically detects the caller's language and responds accordingly, providing the same complete intake and scheduling experience regardless of what language they speak. This is included in all plans, if requested.",
+          "Yes. Taingo supports over 50 languages, including English and Spanish. It automatically detects the caller's language and responds accordingly, providing the same complete intake and scheduling experience regardless of what language they speak. This is included in all plans, if requested.",
       },
       {
         question: "What happens on calls Taingo can't handle?",

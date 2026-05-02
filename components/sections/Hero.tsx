@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { PhoneCall, CalendarCheck, Clock } from "lucide-react";
 
 export default function Hero() {
@@ -170,27 +169,6 @@ export default function Hero() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Photo strip */}
-      <div className="relative h-64 md:h-80 overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1642749776312-aa42ce20c9f5?w=1600&q=80&auto=format&fit=crop"
-          alt="Rooftop technician at work"
-          fill
-          className="object-cover object-center"
-          sizes="100vw"
-          priority
-        />
-        <div className="absolute inset-0 bg-midnight/40" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <p className="text-paper text-center text-lg md:text-2xl font-bold tracking-wide max-w-2xl px-6">
-            <span className="block">Your techs stay on the job.</span>
-            <span className="block text-sun mt-1.5 md:mt-2">
-              Taingo handles every call.
-            </span>
-          </p>
         </div>
       </div>
     </section>

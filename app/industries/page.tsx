@@ -153,22 +153,22 @@ export default function IndustriesPage() {
     <>
       {/* Page Hero */}
       <section className="bg-bone pt-28 pb-16 border-b border-bone">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.22em] text-copper mb-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center [container-type:inline-size]">
+          <p className="text-base md:text-lg font-black uppercase tracking-[0.22em] text-copper mb-4">
             Industry Solutions
           </p>
-          <div className="w-full min-w-0 overflow-x-auto overflow-y-visible pb-1 [scrollbar-width:thin] flex justify-center mb-5">
-            <h1
-              className="font-black text-midnight leading-tight whitespace-nowrap shrink-0 inline-block [font-family:var(--font-poppins),system-ui,sans-serif]"
-              style={{ fontSize: "clamp(36px, 6vw, 64px)", letterSpacing: "-0.03em" }}
-            >
-              Built for Your Specific Trade
-            </h1>
-          </div>
+          <h1
+            className="font-bold text-midnight mb-5 leading-tight [font-family:var(--font-poppins),system-ui,sans-serif] whitespace-nowrap"
+            style={{
+              fontSize: "clamp(14px, calc(100cqi / 19), 2.75rem)",
+              letterSpacing: "-0.035em",
+            }}
+          >
+            Built for Your Specific Trade
+          </h1>
           <p className="text-lg text-midnight/65 max-w-2xl mx-auto">
-            Taingo isn&apos;t a generic answering service. It&apos;s trained on the
-            language, urgency, and workflows of home service businesses — so it
-            sounds like an expert in your field.
+            Give your customers the fast, knowledgeable response they expect—and turn
+            more calls into booked work.
           </p>
         </div>
       </section>
