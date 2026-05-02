@@ -37,6 +37,9 @@ export const metadata: Metadata = {
   title: "Taingo | AI Voice Receptionist for Home Service Businesses",
   description:
     "Taingo provides AI-powered voice receptionists for HVAC, plumbing, roofing, electricians, and other home service businesses. Never miss a call. Book more jobs. Grow faster.",
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+  },
   keywords: [
     "AI receptionist",
     "AI phone answering service",

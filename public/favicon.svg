@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    
+  </defs>
+  <rect x="0" y="0" width="64" height="64" rx="12" ry="12" fill="#0a1628"></rect>
+  <text x="32" y="50" text-anchor="middle" font-size="58" fill="#f2ede2" class="t">T</text>
+  <circle cx="46" cy="14" r="5.5" fill="#e07142"></circle>
+</svg>
